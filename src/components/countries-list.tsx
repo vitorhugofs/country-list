@@ -49,7 +49,7 @@ export default function CountriesList({ countriesList }: { countriesList: Countr
             <div className="grid grid-cols-4 gap-4 p-4">
                 {filteredCountriesList.length === 0 ? <p>No countries found</p> : null}
                 {filteredCountriesList?.map((country: Country) => (
-                    <CountryCard country={country} />
+                    <CountryCard key={country.name.common} country={country} />
                 ))}
             </div>
         </>
