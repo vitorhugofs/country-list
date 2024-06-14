@@ -8,12 +8,10 @@ import { useEffect, useState } from "react";
 export default function DetailPage() {
     const params = useSearchParams();
 
-
     const [country, setCountry] = useState<Country | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        console.log(country);
         if (!loading) {
             return;
         }
