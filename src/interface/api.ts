@@ -8,8 +8,20 @@ export interface Country {
         common: string;
         official: string;
     };
+    cca3: string;
     capital: string[];
     region: string;
     population: number;
+    subregion: string;
+    tld: ['string'];
+    languages: {
+        [key: string]: string
+    }
+    currencies: {
+        [key: string]: {
+            name: string;
+            symbol: string;
+        }
+    }
 }
   

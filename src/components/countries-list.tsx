@@ -41,7 +41,6 @@ export default function CountriesList({ countriesList }: { countriesList: Countr
                 onChange={(e) => handleSearch(e.target.value)}
                 />
 
-                {/* create a dropdown filter for regions */}
                 <select className="w-96 rounded border border-gray-300 p-2" onChange={(e) => handleRegionSearch(e.target.value)}>
                     <option value="none">Select Region</option>
                     {regionsFiltered.map((region: string) => <option key={region} value={region}>{region}</option>)}
