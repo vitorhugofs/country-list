@@ -4,10 +4,14 @@ import React, { useEffect, useState } from "react";
 
 export default function Header() {
     const [ isDark, setIsDark ] = useState(false);
-    const isDarkActive = document?.body.classList.contains('dark');
-    const setDark = () => document?.body.classList.add('dark');
-
+    
     useEffect(() => {
+        if (!document) {
+            return;
+        }
+
+        const isDarkActive = document.body.classList.contains('dark');
+        const setDark = () => document.body.classList.add('dark');
         setIsDark(localStorage.getItem('darkMode') === 'true');
 
         if (isDark && !isDarkActive) {
