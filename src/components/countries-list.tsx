@@ -32,26 +32,27 @@ export default function CountriesList({ countriesList }: { countriesList: Countr
     }
    
     return (
-        <>
-            <form className="flex">
+        <div className="max-w-[1366px]">
+            <form className="flex flex-col md:flex-row md:justify-between w-full justify-center gap-4 mb-8">
                 <input
                 type="text"
                 placeholder="Search for a country..."
-                className="w-96 rounded border border-gray-300 p-2"
+                className="w-full md:w-[480px] rounded placeholder:text-very-dark-blue dark:placeholder:text-white bg-white shadow 
+                shadow-very-dark-blue/50 dark:bg-blue dark:text-white p-2 pl-4 focus:outline-none"
                 onChange={(e) => handleSearch(e.target.value)}
                 />
 
-                <select className="w-96 rounded border border-gray-300 p-2" onChange={(e) => handleRegionSearch(e.target.value)}>
-                    <option value="none">Select Region</option>
+                <select className="w-48 rounded bg-white shadow shadow-very-dark-blue/50 dark:bg-blue dark:text-white p-2 focus:outline-none" onChange={(e) => handleRegionSearch(e.target.value)}>
+                    <option className="rounded-t " value="none">Select Region</option>
                     {regionsFiltered.map((region: string) => <option key={region} value={region}>{region}</option>)}
                 </select>
             </form>
-            <div className="grid grid-cols-4 gap-4 p-4">
+            <div className="flex flex-wrap justify-center lg:justify-between gap-12">
                 {filteredCountriesList.length === 0 ? <p>No countries found</p> : null}
                 {filteredCountriesList?.map((country: Country) => (
                     <CountryCard key={country.name.common} country={country} />
                 ))}
             </div>
-        </>
+        </div>
     )
 }

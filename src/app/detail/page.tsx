@@ -3,7 +3,7 @@ import CountryDetail from "@/components/country-detail";
 import { Country } from "@/interface/api";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function DetailPage() {
     const params = useSearchParams();
@@ -34,12 +34,16 @@ export default function DetailPage() {
         });
     })
 
-
     return (
-        <main>
-            <Link href="/">
-                <button> <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg> Back</button>
-            </Link>
+        <main className="flex min-h-screen flex-col items-center p-8 text-very-dark-blue bg-very-light-gray dark:bg-dark-blue dark:text-white">
+            <div className="flex items-start max-w-[1366px] w-full mb-16">
+                <Link href="/">
+                    <button className="flex gap-2 bg-white rounded shadow shadow-very-dark-blue/50 dark:bg-blue dark:text-white px-4 py-2">
+                    <div className="w-6 h-6 bg-back dark:bg-back-dark"></div>
+                      Back
+                    </button>
+                </Link>
+            </div>
             { country && <CountryDetail country={country} /> }
         </main>
     );
